@@ -25,6 +25,8 @@ object AppConfig {
     val secret = setting("ASTRA_CLIENT_SECRET", "CLIENT_SECRET", "secret", default = token)
     val databaseId = setting("ASTRA_DATABASE_ID", "DATABASE_ID", "databaseId")
     val keyspace = setting("ASTRA_KEYSPACE", "keyspace", default = "default_keyspace")
+    val region = setting("ASTRA_REGION", "region", default = "us-east-2")
+    val dataApiUrl = setting("ASTRA_DATA_API_URL", "dataApiUrl", default = "https://$databaseId-$region.apps.astra.datastax.com/api/json/v1/$keyspace")
     val secureConnectBundle = setting("ASTRA_SECURE_CONNECT_BUNDLE")
     val autoMigrate = setting("ASTRA_AUTO_MIGRATE", default = "true").toBooleanStrict()
     val serverPort = setting("PORT", "serverPort", default = "5000").toInt()
@@ -47,7 +49,7 @@ object AppConfig {
         require(keyspace.matches(Regex("[a-zA-Z][a-zA-Z0-9_]*"))) { "Invalid Astra keyspace" }
         require(paymentMode in setOf("daraja", "mock")) { "PAYMENT_MODE must be daraja or mock" }
         require(token.isNotBlank() || secret.isNotBlank()) { "Astra credentials are required" }
-        require(secureConnectBundle.isNotBlank() || databaseId.isNotBlank()) { "Set ASTRA_DATABASE_ID or ASTRA_SECURE_CONNECT_BUNDLE" }
+        require(dataApiUrl.isNotBlank() || secureConnectBundle.isNotBlank() || databaseId.isNotBlank()) { "Set ASTRA_DATABASE_ID or ASTRA_DATA_API_URL" }
     }
 }
 

@@ -1,0 +1,11 @@
+.git
+.gradle
+.idea
+.env
+app/
+build/
+backend/build/
+backend/.local/
+local.properties
+*.apk
+

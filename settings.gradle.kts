@@ -15,6 +15,8 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Kotlin_Scan_Pay"
-include(":app")
+if (System.getenv("BUILD_BACKEND_ONLY") != "true") {
+    include(":app")
+}
 include(":backend")
 
