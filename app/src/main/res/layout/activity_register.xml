@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ui_surface_lowest"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Back Button and Title -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_back"
+                android:contentDescription="@string/cd_back_button"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:text="@string/create_account"
+                android:textColor="@color/ui_on_surface"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-medium"/>
+
+        </LinearLayout>
+
+        <!-- User Type Indicator -->
+        <TextView
+            android:id="@+id/tv_user_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="Customer Registration"
+            android:textColor="@color/ui_primary"
+            android:textSize="14sp"/>
+
+        <!-- Registration Form Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            app:cardBackgroundColor="@color/ui_surface_low"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_large">
+
+                <!-- Name Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/TextInputStyle"
+                    app:boxBackgroundColor="@color/ui_surface_variant"
+                    app:hintTextColor="@color/ui_on_surface_variant">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_name"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/ui_on_surface"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Business Name (Merchant Only) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_business_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:visibility="gone"
+                    style="@style/TextInputStyle"
+                    app:boxBackgroundColor="@color/ui_surface_variant"
+                    app:hintTextColor="@color/ui_on_surface_variant">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_business_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_business_name"
+                        android:inputType="text"
+                        android:textColor="@color/ui_on_surface"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Business Short Code (Merchant Only) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_short_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:visibility="gone"
+                    style="@style/TextInputStyle"
+                    app:boxBackgroundColor="@color/ui_surface_variant"
+                    app:hintTextColor="@color/ui_on_surface_variant">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_short_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_business_short_code"
+                        android:inputType="number"
+                        android:textColor="@color/ui_on_surface"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Merchant ID (Merchant Only) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_merchant_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:visibility="gone"
+                    style="@style/TextInputStyle"
+                    app:boxBackgroundColor="@color/ui_surface_variant"
+                    app:hintTextColor="@color/ui_on_surface_variant">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_merchant_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_merchant_id"
+                        android:inputType="text"
+                        android:textColor="@color/ui_on_surface"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- MCC Dropdown (Merchant Only) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_mcc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:visibility="gone"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    app:boxBackgroundColor="@color/ui_surface_variant"
+                    app:hintTextColor="@color/ui_on_surface_variant">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/dropdown_mcc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_mcc"
+                        android:inputType="none"
+                        android:textColor="@color/ui_on_surface"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Store Label (Merchant Only) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_store_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:visibility="gone"
+                    style="@style/TextInputStyle"
+                    app:boxBackgroundColor="@color/inputBackground"
+                    app:hintTextColor="@color/textHint">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_store_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_store_label"
+                        android:inputType="text"
+                        android:textColor="@color/textPrimary"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Payment Method Type (Merchant Only) -->
+                <TextView
+                    android:id="@+id/tv_payment_method_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:visibility="gone"
+                    android:text="@string/label_payment_method"
+                    android:textColor="@color/ui_on_surface"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_payment_method"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_till"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/label_till"
+                        android:textColor="@color/ui_on_surface"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_paybill"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/label_paybill"
+                        android:textColor="@color/ui_on_surface"/>
+
+                </RadioGroup>
+
+                <!-- Business Number / Account Number (Merchant - PAYBILL Only) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_business_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:visibility="gone"
+                    style="@style/TextInputStyle"
+                    app:boxBackgroundColor="@color/ui_surface_variant"
+                    app:hintTextColor="@color/ui_on_surface_variant">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_business_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_business_number"
+                        android:inputType="number"
+                        android:textColor="@color/ui_on_surface"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Email Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    style="@style/TextInputStyle"
+                    app:boxBackgroundColor="@color/inputBackground"
+                    app:hintTextColor="@color/textHint">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_email"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/textPrimary"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Phone Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    style="@style/TextInputStyle"
+                    app:boxBackgroundColor="@color/ui_surface_variant"
+                    app:hintTextColor="@color/ui_on_surface_variant"
+                    app:prefixText="+254"
+                    app:prefixTextColor="@color/ui_on_surface_variant">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_phone"
+                        android:inputType="phone"
+                        android:textColor="@color/ui_on_surface"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Password Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    style="@style/TextInputStyle"
+                    app:boxBackgroundColor="@color/ui_surface_variant"
+                    app:hintTextColor="@color/ui_on_surface_variant"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/ui_on_surface_variant">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_password"
+                        android:inputType="textPassword"
+                        android:textColor="@color/ui_on_surface"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Confirm Password Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_confirm_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    style="@style/TextInputStyle"
+                    app:boxBackgroundColor="@color/ui_surface_variant"
+                    app:hintTextColor="@color/ui_on_surface_variant"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/ui_on_surface_variant">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_confirm_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_confirm_password"
+                        android:inputType="textPassword"
+                        android:textColor="@color/ui_on_surface"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Register Button -->
+                <Button
+                    android:id="@+id/btn_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:background="@drawable/bg_dashboard_primary_button"
+                    android:text="@string/register"
+                    android:textColor="@color/ui_on_primary"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.08"
+                    android:stateListAnimator="@null"/>
+
+                <!-- Loading Progress -->
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:visibility="gone"
+                    android:indeterminateTint="@color/ui_primary"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Login Link -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_large">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/already_have_account"
+                android:textColor="@color/ui_on_surface_variant"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/login"
+                android:textColor="@color/ui_primary"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-medium"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
+

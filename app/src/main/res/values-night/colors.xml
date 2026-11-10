@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Navigation Colors (Dark Mode) -->
+    <color name="navBackground">#0E0E0E</color>
+    <color name="navItemActive">#9CFF93</color>
+    <color name="navItemInactive">#ADAAAA</color>
+
+    <!-- Scan Screen (Dark Mode) -->
+    <color name="scan_surface_lowest">#0E0E0E</color>
+    <color name="scan_surface_low">#131313</color>
+    <color name="scan_surface_highest">#262626</color>
+    <color name="scan_surface_variant">#262626</color>
+    <color name="scan_outline_variant">#484847</color>
+    <color name="scan_primary">#9CFF93</color>
+    <color name="scan_primary_container">#00FC40</color>
+    <color name="scan_secondary">#89FAAA</color>
+    <color name="scan_tertiary">#8AF2FF</color>
+    <color name="scan_on_surface">#FFFFFF</color>
+    <color name="scan_on_surface_variant">#ADAAAA</color>
+    <color name="scan_on_primary">#006413</color>
+    <color name="scan_mask">#B3000000</color>
+    <color name="scan_primary_soft">#669CFF93</color>
+    <color name="scan_primary_glow">#339CFF93</color>
+    <color name="scan_glass">#66262626</color>
+    <color name="scan_glass_border">#26484847</color>
+
+    <!-- Dashboard UI (Dark Mode) -->
+    <color name="ui_surface_lowest">#0E0E0E</color>
+    <color name="ui_surface">#0E0E0E</color>
+    <color name="ui_surface_low">#131313</color>
+    <color name="ui_surface_high">#20201F</color>
+    <color name="ui_surface_highest">#262626</color>
+    <color name="ui_surface_variant">#262626</color>
+    <color name="ui_outline_variant">#484847</color>
+    <color name="ui_on_surface">#FFFFFF</color>
+    <color name="ui_on_surface_variant">#ADAAAA</color>
+    <color name="ui_primary">#9CFF93</color>
+    <color name="ui_primary_container">#00FC40</color>
+    <color name="ui_on_primary">#006413</color>
+    <color name="ui_secondary">#89FAAA</color>
+    <color name="ui_tertiary">#8AF2FF</color>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Night Theme - same as day since our app is already dark-themed -->
+    <style name="Theme.ScanPay" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorOnSecondary">@color/colorPrimaryDark</item>
+
+        <!-- Tertiary brand color -->
+        <item name="colorTertiary">@color/accentGreen</item>
+        <item name="colorOnTertiary">@color/colorPrimaryDark</item>
+
+        <!-- Background and surface -->
+        <item name="android:windowBackground">@color/backgroundColor</item>
+        <item name="colorSurface">@color/cardBackground</item>
+        <item name="colorOnSurface">@color/textPrimary</item>
+        <item name="colorSurfaceVariant">@color/cardBackgroundLight</item>
+        <item name="colorOnSurfaceVariant">@color/textSecondary</item>
+
+        <!-- Status bar and navigation bar -->
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:navigationBarColor">@color/navBackground</item>
+    </style>
+
+    <style name="Theme.ScanPay.Scanner" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/scan_surface_lowest</item>
+        <item name="colorSurface">@color/scan_surface_low</item>
+        <item name="colorOnSurface">@color/scan_on_surface</item>
+        <item name="colorSurfaceVariant">@color/scan_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/scan_on_surface_variant</item>
+        <item name="colorPrimary">@color/scan_primary</item>
+        <item name="colorOnPrimary">@color/scan_on_primary</item>
+        <item name="colorPrimaryContainer">@color/scan_primary_container</item>
+        <item name="android:statusBarColor">@color/scan_surface_lowest</item>
+        <item name="android:navigationBarColor">@color/scan_surface_lowest</item>
+    </style>
+</resources>
+
+

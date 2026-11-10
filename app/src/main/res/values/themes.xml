@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Theme -->
+    <style name="Theme.ScanPay" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/ui_secondary</item>
+        <item name="colorOnPrimary">@color/ui_on_primary</item>
+        <item name="colorPrimaryContainer">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorOnSecondary">@color/colorPrimaryDark</item>
+
+        <!-- Tertiary brand color -->
+        <item name="colorTertiary">@color/accentGreen</item>
+        <item name="colorOnTertiary">@color/colorPrimaryDark</item>
+
+        <!-- Background and surface -->
+        <item name="android:windowBackground">@color/backgroundColor</item>
+        <item name="colorSurface">@color/cardBackground</item>
+        <item name="colorOnSurface">@color/textPrimary</item>
+        <item name="colorSurfaceVariant">@color/cardBackgroundLight</item>
+        <item name="colorOnSurfaceVariant">@color/textSecondary</item>
+
+        <!-- Status bar and navigation bar -->
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:navigationBarColor">@color/navBackground</item>
+    </style>
+
+    <!-- Splash Theme -->
+    <style name="Theme.ScanPay.Splash" parent="Theme.ScanPay">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+
+    <!-- Scanner Theme (DayNight for toggling) -->
+    <style name="Theme.ScanPay.Scanner" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/scan_surface_lowest</item>
+        <item name="colorSurface">@color/scan_surface_low</item>
+        <item name="colorOnSurface">@color/scan_on_surface</item>
+        <item name="colorSurfaceVariant">@color/scan_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/scan_on_surface_variant</item>
+        <item name="colorPrimary">@color/scan_primary</item>
+        <item name="colorOnPrimary">@color/scan_on_primary</item>
+        <item name="colorPrimaryContainer">@color/scan_primary_container</item>
+        <item name="android:statusBarColor">@color/scan_surface_lowest</item>
+        <item name="android:navigationBarColor">@color/scan_surface_lowest</item>
+    </style>
+
+    <!-- Base Text Style (required as implicit parent for dot-notation children) -->
+    <style name="TextStyle">
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <!-- Text Styles -->
+    <style name="TextStyle.Title">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextStyle.Subtitle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextStyle.Body">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextStyle.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/textSecondary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextStyle.Tagline">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/accentGreen</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="TextStyle.Amount">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextStyle.AmountSmall">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextStyle.Currency">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/accentGreen</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="ButtonStyle.Primary" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/buttonPrimary</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="cornerRadius">30dp</item>
+    </style>
+
+    <style name="ButtonStyle.Secondary" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/accentGreen</item>
+        <item name="android:textColor">@color/accentGreen</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="cornerRadius">30dp</item>
+    </style>
+
+    <style name="ButtonStyle.ScanPay" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/accentGreen</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="android:paddingStart">48dp</item>
+        <item name="android:paddingEnd">48dp</item>
+        <item name="cornerRadius">40dp</item>
+        <item name="android:elevation">8dp</item>
+    </style>
+
+    <!-- Base Card Style (required as implicit parent for dot-notation children) -->
+    <style name="CardStyle">
+        <item name="cardBackgroundColor">@color/cardBackground</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <!-- Card Styles -->
+    <style name="CardStyle.Primary">
+        <item name="cardBackgroundColor">@color/cardBackground</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <style name="CardStyle.Inflow">
+        <item name="cardBackgroundColor">@color/inflowGreen</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <style name="CardStyle.Outflow">
+        <item name="cardBackgroundColor">@color/outflowRed</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <style name="CardStyle.TotalSpent">
+        <item name="cardBackgroundColor">@color/cardBackground</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="contentPadding">24dp</item>
+    </style>
+
+    <!-- Input Field Style -->
+    <style name="TextInputStyle" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/inputBackground</item>
+        <item name="boxStrokeColor">@color/inputBorder</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="hintTextColor">@color/textHint</item>
+        <item name="android:textColorHint">@color/textHint</item>
+    </style>
+
+    <!-- Bottom Navigation Style -->
+    <style name="BottomNavStyle" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/navBackground</item>
+        <item name="itemIconTint">@color/nav_item_color</item>
+        <item name="itemTextColor">@color/nav_item_color</item>
+        <item name="labelVisibilityMode">labeled</item>
+    </style>
+
+    <!-- Divider Style -->
+    <style name="DividerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/divider</item>
+    </style>
+</resources>
+

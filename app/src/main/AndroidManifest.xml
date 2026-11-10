@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <application
+        android:name=".ScanPayApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ScanPay"
+        android:usesCleartextTraffic="${allowCleartext}"
+        tools:targetApi="31">
+
+        <!-- Splash Screen -->
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.ScanPay.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Authentication Activities -->
+        <activity
+            android:name=".ui.auth.UserTypeSelectionActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ScanPay" />
+
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ScanPay" />
+
+        <activity
+            android:name=".ui.auth.RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ScanPay" />
+
+        <activity
+            android:name=".ui.auth.ForgotPasswordActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ScanPay" />
+
+        <activity
+            android:name=".ui.auth.ResetPasswordActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ScanPay" />
+
+        <!-- Customer Main Activity -->
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ScanPay" />
+
+        <!-- Merchant Main Activity -->
+        <activity
+            android:name=".ui.merchant.MerchantMainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ScanPay" />
+
+        <!-- QR Generator Activity -->
+        <activity
+            android:name=".ui.merchant.QRGeneratorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ScanPay" />
+
+        <!-- Top-up Activity -->
+        <activity
+            android:name=".ui.merchant.TopUpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ScanPay" />
+
+        <!-- QR Scanner Activity -->
+        <activity
+            android:name=".ui.scanner.QRScannerActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ScanPay.Scanner" />
+
+        <!-- Payment Flow Activities -->
+        <activity
+            android:name=".ui.payment.PaymentConfirmationActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ScanPay" />
+
+        <activity
+            android:name=".ui.payment.PaymentSuccessActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ScanPay" />
+
+        <!-- Profile & Settings -->
+        <activity
+            android:name=".ui.more.ProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ScanPay" />
+
+        <activity android:name=".ui.analytics.AnalyticsActivity" android:exported="false" />
+        <activity android:name=".ui.history.HistoryActivity" android:exported="false" />
+        <provider android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.files" android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>
+

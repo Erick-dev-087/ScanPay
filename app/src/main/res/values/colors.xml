@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors - Dark Theme matching the UI -->
+    <color name="colorPrimary">#1A237E</color>
+    <color name="colorPrimaryDark">#0D1B3E</color>
+    <color name="colorPrimaryVariant">#121B2E</color>
+    <color name="colorAccent">#00D9A5</color>
+
+    <!-- Background Colors -->
+    <color name="backgroundColor">#0D1B3E</color>
+    <color name="backgroundSecondary">#162544</color>
+    <color name="cardBackground">#1C2F4A</color>
+    <color name="cardBackgroundLight">#243B55</color>
+
+    <!-- Text Colors -->
+    <color name="textPrimary">#FFFFFF</color>
+    <color name="textSecondary">#B0BEC5</color>
+    <color name="textTertiary">#78909C</color>
+    <color name="textHint">#546E7A</color>
+
+    <!-- Accent Colors -->
+    <color name="accentGreen">#00D9A5</color>
+    <color name="accentTeal">#00BFA5</color>
+    <color name="accentCyan">#26C6DA</color>
+    <color name="accentBlue">#29B6F6</color>
+
+    <!-- Status Colors -->
+    <color name="successGreen">#4CAF50</color>
+    <color name="warningYellow">#FFC107</color>
+    <color name="errorRed">#F44336</color>
+    <color name="infoBlue">#2196F3</color>
+
+    <!-- Financial Colors -->
+    <color name="inflowGreen">#0D7D5F</color>
+    <color name="inflowGreenLight">#10A37F</color>
+    <color name="outflowRed">#8B3A3A</color>
+    <color name="outflowRedLight">#B84A4A</color>
+
+    <!-- Chart Colors -->
+    <color name="chartGreen">#2E7D32</color>
+    <color name="chartTeal">#00796B</color>
+    <color name="chartBlue">#1565C0</color>
+    <color name="chartPurple">#7B1FA2</color>
+    <color name="chartOrange">#EF6C00</color>
+    <color name="chartCyan">#00ACC1</color>
+
+    <!-- Pie Chart Colors (from UI) -->
+    <color name="pieColor1">#2E7D32</color>
+    <color name="pieColor2">#00897B</color>
+    <color name="pieColor3">#1976D2</color>
+    <color name="pieColor4">#5E35B1</color>
+    <color name="pieColor5">#00ACC1</color>
+
+    <!-- Button Colors -->
+    <color name="buttonPrimary">#00D9A5</color>
+    <color name="buttonPrimaryPressed">#00B88A</color>
+    <color name="buttonSecondary">#1C2F4A</color>
+    <color name="buttonDisabled">#37474F</color>
+
+    <!-- Input Field Colors -->
+    <color name="inputBackground">#1C2F4A</color>
+    <color name="inputBorder">#37474F</color>
+    <color name="inputBorderFocused">#00D9A5</color>
+
+    <!-- Navigation Colors -->
+    <color name="navBackground">#F9F9F8</color>
+    <color name="navItemActive">#006D38</color>
+    <color name="navItemInactive">#484847</color>
+
+    <!-- Divider -->
+    <color name="divider">#37474F</color>
+
+    <!-- Overlay -->
+    <color name="overlay">#80000000</color>
+
+    <!-- White and Black -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Transaction Item Colors -->
+    <color name="transactionIconGreen">#4CAF50</color>
+    <color name="transactionIconBlue">#2196F3</color>
+    <color name="transactionIconOrange">#FF9800</color>
+    <color name="transactionIconYellow">#FFEB3B</color>
+
+    <!-- Gradient Start/End -->
+    <color name="gradientStart">#00D9A5</color>
+    <color name="gradientEnd">#00B88A</color>
+
+    <!-- Ripple -->
+    <color name="rippleColor">#2000D9A5</color>
+
+    <!-- Scan Screen (Light Mode Defaults) -->
+    <color name="scan_surface_lowest">#F9F9F8</color>
+    <color name="scan_surface_low">#F7F7F7</color>
+    <color name="scan_surface_highest">#E1E1E1</color>
+    <color name="scan_surface_variant">#F1F1F1</color>
+    <color name="scan_outline_variant">#C8C8C7</color>
+    <color name="scan_primary">#00FC40</color>
+    <color name="scan_primary_container">#9CFF93</color>
+    <color name="scan_secondary">#006D38</color>
+    <color name="scan_tertiary">#006874</color>
+    <color name="scan_on_surface">#1A1A1A</color>
+    <color name="scan_on_surface_variant">#484847</color>
+    <color name="scan_on_primary">#002104</color>
+    <color name="scan_mask">#99000000</color>
+    <color name="scan_primary_soft">#6600FC40</color>
+    <color name="scan_primary_glow">#3300FC40</color>
+    <color name="scan_glass">#B3FFFFFF</color>
+    <color name="scan_glass_border">#1A000000</color>
+
+    <!-- Dashboard UI (Light Mode) -->
+    <color name="ui_surface_lowest">#FFFFFF</color>
+    <color name="ui_surface">#F9F9F8</color>
+    <color name="ui_surface_low">#F7F7F7</color>
+    <color name="ui_surface_high">#E6E6E5</color>
+    <color name="ui_surface_highest">#E1E1E1</color>
+    <color name="ui_surface_variant">#F1F1F1</color>
+    <color name="ui_outline_variant">#C8C8C7</color>
+    <color name="ui_on_surface">#1A1A1A</color>
+    <color name="ui_on_surface_variant">#484847</color>
+    <color name="ui_primary">#00FC40</color>
+    <color name="ui_primary_container">#9CFF93</color>
+    <color name="ui_on_primary">#002104</color>
+    <color name="ui_secondary">#006D38</color>
+    <color name="ui_tertiary">#006874</color>
+</resources>
+

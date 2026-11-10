@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- QR Code shape -->
+    <path
+        android:fillColor="#00D9A5"
+        android:pathData="M20,20 L20,40 L40,40 L40,20 Z M25,25 L35,25 L35,35 L25,35 Z"/>
+    <path
+        android:fillColor="#00D9A5"
+        android:pathData="M80,20 L80,40 L100,40 L100,20 Z M85,25 L95,25 L95,35 L85,35 Z"/>
+    <path
+        android:fillColor="#00D9A5"
+        android:pathData="M20,80 L20,100 L40,100 L40,80 Z M25,85 L35,85 L35,95 L25,95 Z"/>
+
+    <!-- Center pattern -->
+    <path
+        android:fillColor="#00D9A5"
+        android:pathData="M50,50 L50,70 L70,70 L70,50 Z"/>
+    <path
+        android:fillColor="#00D9A5"
+        android:pathData="M45,45 L45,50 L50,50 L50,45 Z"/>
+    <path
+        android:fillColor="#00D9A5"
+        android:pathData="M70,45 L70,50 L75,50 L75,45 Z"/>
+    <path
+        android:fillColor="#00D9A5"
+        android:pathData="M45,70 L45,75 L50,75 L50,70 Z"/>
+    <path
+        android:fillColor="#00D9A5"
+        android:pathData="M70,70 L70,75 L75,75 L75,70 Z"/>
+
+    <!-- Additional decorative elements -->
+    <path
+        android:fillColor="#00D9A5"
+        android:pathData="M80,80 L80,85 L85,85 L85,80 Z"/>
+    <path
+        android:fillColor="#00D9A5"
+        android:pathData="M90,90 L90,100 L100,100 L100,90 Z"/>
+    <path
+        android:fillColor="#00D9A5"
+        android:pathData="M80,90 L80,95 L85,95 L85,90 Z"/>
+</vector>
+

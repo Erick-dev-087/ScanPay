@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical" android:padding="24dp" android:background="@color/ui_surface">
+    <com.google.android.material.button.MaterialButton android:id="@+id/btn_back" style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="wrap_content" android:layout_height="48dp" android:text="Back" android:textColor="@color/ui_secondary" />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Payment history"
+        android:textSize="28sp" android:textStyle="bold" android:textColor="@color/ui_on_surface" />
+    <TextView android:id="@+id/tv_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp"
+        android:text="Loading payments…" android:textColor="@color/ui_on_surface_variant" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_transactions" android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="16dp" />
+    <com.google.android.material.button.MaterialButton android:id="@+id/btn_more" style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent" android:layout_height="56dp" android:text="Load more" android:textColor="@color/ui_secondary" />
+</LinearLayout>
+

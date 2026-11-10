@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical"
+    android:background="@color/ui_surface">
+    <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:fillViewport="true">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="24dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="SCANPAY BUSINESS" android:textSize="12sp" android:letterSpacing="0.15" android:textColor="@color/ui_secondary" />
+            <TextView android:id="@+id/tv_merchant_greeting" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:text="Your business" android:textSize="28sp" android:textStyle="bold" android:textColor="@color/ui_on_surface" />
+            <TextView android:id="@+id/tv_status" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:text="Loading your payments…" android:textColor="@color/ui_on_surface_variant" />
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="24dp" app:cardCornerRadius="24dp" app:cardBackgroundColor="@color/ui_primary_container" app:strokeWidth="0dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Received this week" android:textColor="@color/ui_on_primary" />
+                    <TextView android:id="@+id/tv_week_revenue" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp" android:text="—" android:textSize="36sp" android:textStyle="bold" android:textColor="@color/ui_on_primary" />
+                    <TextView android:id="@+id/tv_today_revenue" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp" android:text="Confirmed M-Pesa payments" android:textColor="@color/ui_on_primary" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.button.MaterialButton android:id="@+id/btn_create_qr" android:layout_width="match_parent"
+                android:layout_height="64dp" android:layout_marginTop="20dp" android:text="Create a payment QR" android:textColor="@color/white"
+                android:backgroundTint="@color/ui_secondary" app:cornerRadius="18dp" app:icon="@drawable/ic_qr_code" />
+            <com.google.android.material.button.MaterialButton android:id="@+id/btn_refresh" style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content" android:layout_height="48dp" android:layout_gravity="end" android:text="Refresh payments" android:textColor="@color/ui_secondary" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Revenue · Last 7 days"
+                android:textSize="18sp" android:textStyle="bold" android:textColor="@color/ui_on_surface" />
+            <com.github.mikephil.charting.charts.LineChart android:id="@+id/line_chart" android:layout_width="match_parent"
+                android:layout_height="240dp" android:layout_marginTop="16dp" />
+            <com.google.android.material.button.MaterialButton android:id="@+id/btn_view_all_receipts" style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent" android:layout_height="56dp" android:text="View payment history" android:textColor="@color/ui_secondary" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp"
+                android:text="Payments go directly to your till or paybill. ScanPay tracks confirmed payments."
+                android:textColor="@color/ui_on_surface_variant" android:lineSpacingExtra="4dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/navBackground"
+        app:itemIconTint="@color/nav_item_color" app:itemTextColor="@color/nav_item_color" app:labelVisibilityMode="labeled" app:menu="@menu/bottom_nav_menu" />
+</LinearLayout>
+

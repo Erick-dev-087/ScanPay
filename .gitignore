@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+.local/
+.gradle/
+.kotlin/
+**/build/
+local.properties
+*.log
+secure-connect-*.zip
+!gradlew.bat
+!gradle/wrapper/gradle-wrapper.jar

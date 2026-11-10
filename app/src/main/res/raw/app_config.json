@@ -1,0 +1,4 @@
+{
+  "auth_session_inactivity_seconds": 900,
+  "session_idle_timeout_ms": 120000
+}

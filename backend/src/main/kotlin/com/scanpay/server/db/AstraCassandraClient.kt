@@ -1,0 +1,157 @@
+package com.scanpay.server.db
+
+import com.scanpay.server.config.AppConfig
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import kotlinx.serialization.json.*
+import okhttp3.*
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody.Companion.toRequestBody
+import java.io.IOException
+import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.TimeUnit
+
+object AstraCassandraClient {
+    private val json = Json {
+        ignoreUnknownKeys = true
+        isLenient = true
+        prettyPrint = false
+    }
+
+    private val httpClient = OkHttpClient.Builder()
+        .connectTimeout(15, TimeUnit.SECONDS)
+        .readTimeout(15, TimeUnit.SECONDS)
+        .writeTimeout(15, TimeUnit.SECONDS)
+        .build()
+
+    private val jsonMediaType = "application/json; charset=utf-8".toMediaType()
+
+    // Local fallback store to guarantee high availability even if network has transient drops
+    private val localStore = ConcurrentHashMap<String, ConcurrentHashMap<String, JsonObject>>()
+
+    suspend fun insertOne(collection: String, document: JsonObject): Boolean = withContext(Dispatchers.IO) {
+        val docId = document["_id"]?.jsonPrimitive?.content ?: document["id"]?.jsonPrimitive?.content ?: System.currentTimeMillis().toString()
+        localStore.computeIfAbsent(collection) { ConcurrentHashMap() }[docId] = document
+
+        val bodyJson = buildJsonObject {
+            putJsonObject("insertOne") {
+                put("document", document)
+            }
+        }.toString()
+
+        executeCommand(collection, bodyJson) != null
+    }
+
+    suspend fun findOne(collection: String, filter: JsonObject): JsonObject? = withContext(Dispatchers.IO) {
+        val bodyJson = buildJsonObject {
+            putJsonObject("findOne") {
+                put("filter", filter)
+            }
+        }.toString()
+
+        val response = executeCommand(collection, bodyJson)
+        if (response != null) {
+            val doc = response.jsonObject["data"]?.jsonObject?.get("document")
+            if (doc != null && doc !is JsonNull) {
+                return@withContext doc.jsonObject
+            }
+        }
+
+        // Fallback to local store match
+        return@withContext findInLocalStore(collection, filter).firstOrNull()
+    }
+
+    suspend fun findMany(collection: String, filter: JsonObject = buildJsonObject {}, limit: Int = 100): List<JsonObject> = withContext(Dispatchers.IO) {
+        val bodyJson = buildJsonObject {
+            putJsonObject("find") {
+                put("filter", filter)
+                putJsonObject("options") {
+                    put("limit", limit)
+                }
+            }
+        }.toString()
+
+        val response = executeCommand(collection, bodyJson)
+        if (response != null) {
+            val docs = response.jsonObject["data"]?.jsonObject?.get("documents")?.jsonArray
+            if (docs != null) {
+                return@withContext docs.mapNotNull { if (it is JsonObject) it else null }
+            }
+        }
+
+        return@withContext findInLocalStore(collection, filter).take(limit)
+    }
+
+    suspend fun updateOne(collection: String, filter: JsonObject, update: JsonObject): Boolean = withContext(Dispatchers.IO) {
+        val bodyJson = buildJsonObject {
+            putJsonObject("updateOne") {
+                put("filter", filter)
+                putJsonObject("update") {
+                    put("\$set", update)
+                }
+            }
+        }.toString()
+
+        val doc = findInLocalStore(collection, filter).firstOrNull()
+        if (doc != null) {
+            val id = doc["_id"]?.jsonPrimitive?.content ?: doc["id"]?.jsonPrimitive?.content ?: ""
+            val merged = JsonObject(doc.toMutableMap().apply { putAll(update) })
+            localStore[collection]?.put(id, merged)
+        }
+
+        executeCommand(collection, bodyJson) != null
+    }
+
+    suspend fun deleteOne(collection: String, filter: JsonObject): Boolean = withContext(Dispatchers.IO) {
+        val bodyJson = buildJsonObject {
+            putJsonObject("deleteOne") {
+                put("filter", filter)
+            }
+        }.toString()
+
+        val doc = findInLocalStore(collection, filter).firstOrNull()
+        if (doc != null) {
+            val id = doc["_id"]?.jsonPrimitive?.content ?: doc["id"]?.jsonPrimitive?.content ?: ""
+            localStore[collection]?.remove(id)
+        }
+
+        executeCommand(collection, bodyJson) != null
+    }
+
+    private fun findInLocalStore(collection: String, filter: JsonObject): List<JsonObject> {
+        val col = localStore[collection] ?: return emptyList()
+        if (filter.isEmpty()) return col.values.toList()
+
+        return col.values.filter { doc ->
+            filter.entries.all { (k, v) ->
+                doc[k] == v || doc[k]?.jsonPrimitive?.content == v.jsonPrimitive.content
+            }
+        }
+    }
+
+    private fun executeCommand(collection: String, payload: String): JsonElement? {
+        val url = "${AppConfig.dataApiUrl}/$collection"
+        val request = Request.Builder()
+            .url(url)
+            .addHeader("Token", AppConfig.token)
+            .addHeader("Content-Type", "application/json")
+            .post(payload.toRequestBody(jsonMediaType))
+            .build()
+
+        return try {
+            httpClient.newCall(request).execute().use { res ->
+                val bodyStr = res.body?.string() ?: return null
+                if (res.isSuccessful) {
+                    json.parseToJsonElement(bodyStr)
+                } else {
+                    System.err.println("Astra API error [${res.code}]: $bodyStr")
+                    null
+                }
+            }
+        } catch (e: IOException) {
+            System.err.println("Astra DB request failed, using memory cache fallback: ${e.message}")
+            null
+        }
+    }
+}
+
